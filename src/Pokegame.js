@@ -37,7 +37,6 @@ class Pokegame extends Component {
 
     return (
       <div>
-        <h1>Pokegame!</h1>
         <Pokedex
           pokemons={hand1}
           totalExp={hand1Exp}
