@@ -1,13 +1,3 @@
-/* .Pokedex {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.Pokedex-header {
-  color: lightgrey;
-} */
-
 .Pokedex-board {
   display: flex;
   flex-wrap: wrap;
