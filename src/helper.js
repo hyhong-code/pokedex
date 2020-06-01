@@ -8,4 +8,4 @@ const transformId = (id) => {
   return id;
 };
 
-export default transformId;
+export { transformId };

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Pokecard.css";
-import transformId from "./helper";
+import { transformId } from "./helper";
+const POKE_API = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/";
 
 class Pokecard extends Component {
   render() {
@@ -8,14 +9,13 @@ class Pokecard extends Component {
       data: { id, name, type, base_experience },
     } = this.props;
     const transformedId = transformId(id);
+    const imgSrc = `${POKE_API}${transformedId}.png`;
     return (
       <div className="Pokecard">
         <h2 className="Pokecard-header">{name}</h2>
-        <img
-          src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${transformedId}.png`}
-        ></img>
-        <p>Type: {type}</p>
-        <p>EXP: {base_experience}</p>
+        <img src={imgSrc}></img>
+        <div>Type: {type}</div>
+        <div>EXP: {base_experience}</div>
       </div>
     );
   }
