@@ -16,6 +16,7 @@ class Pokegame extends Component {
   };
 
   render() {
+    // randomly distribut 8 pokemons to 2 hands
     let hand1 = [];
     let hand2 = [...this.props.pokemons];
     while (hand2.length > hand1.length) {
@@ -24,11 +25,29 @@ class Pokegame extends Component {
       hand1.push(removed);
     }
 
+    // calculate total exp for each hand
+    const hand1Exp = hand1.reduce(
+      (acc, { base_experience }) => acc + base_experience,
+      0
+    );
+    const hand2Exp = hand2.reduce(
+      (acc, { base_experience }) => acc + base_experience,
+      0
+    );
+
     return (
       <div>
         <h1>Pokegame!</h1>
-        <Pokedex pokemons={hand1} />
-        <Pokedex pokemons={hand2} />
+        <Pokedex
+          pokemons={hand1}
+          totalExp={hand1Exp}
+          isWinner={hand1Exp > hand2Exp}
+        />
+        <Pokedex
+          pokemons={hand2}
+          totalExp={hand2Exp}
+          isWinner={hand2Exp > hand1Exp}
+        />
       </div>
     );
   }

@@ -7,8 +7,12 @@ class Pokecard extends Component {
     const {
       data: { id, name, type, base_experience },
     } = this.props;
+
+    // transform id to fit api url
     const transformedId = id < 100 ? `00${id}`.slice(-3) : id;
+    // build api url
     const imgSrc = `${POKE_API}${transformedId}.png`;
+
     return (
       <div className="Pokecard">
         <h1 className="Pokecard-header">{name}</h1>
